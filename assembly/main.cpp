@@ -6,13 +6,14 @@
 //
 
 #include <iostream>
+using namespace std;
 
-extern "C" void my_asm_function();
+extern "C" void start();
 
 int main() {
-    std::cout << "Hello from C++!" << std::endl;
+    cout << "Hello from C++!" << endl;
     
-    my_asm_function();
+    start();
     
     return 0;
 }
