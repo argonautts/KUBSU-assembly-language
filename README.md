@@ -1,5 +1,7 @@
 # Assembly language
 
+Assignments on the subject of real-time systems in the university
+
 ## Task 1
 **Purpose**: to study the principles of representing numerical information in computer memory; to acquire practical skills of representing integers with a sign in machine format.
 1. Make and compile a program defining the number 70 in DB, DW, DD formats and the number -2504 in DW, DD formats.
