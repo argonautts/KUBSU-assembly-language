@@ -9,6 +9,8 @@ Assignments on the subject of real-time systems in the university
 - load the BX register with the number -2504 from the data segment;
 - using the specified variant of indirect addressing ([BP][DI]), write the contents of BX into the data segment with an offset of I1 bytes relative to the label I2 (number 70 is preloaded into the appropriate base or index register, if there are other operands in the addressing formula, define them arbitrarily).
 
+---
+
 ## Task 2
 **Purpose**: studying commands of arithmetic and logical operations, acquiring practical skills in their use in various computational tasks.
 1.	Make a program to calculate the given arithmetic expression (A+891/(B*59+C))*76. Choose the length and value of variables A, B, C independently. Use the constants specified in the expression in the code segment.
@@ -16,6 +18,8 @@ Assignments on the subject of real-time systems in the university
 3. Based on the compiled program, perform the following steps:
 - load the number 1 into the accumulator and use the commands of logical operations to set a masking word to determine the given characteristic of the contents of the DX register;
 - perform the specified check and save its result in the RESULT variable declared in the data segment.
+
+---
 
 ## Task 3
 **Purpose**: to study the commands of loop organization and methods of indirect addressing of memory data in the i486 microprocessor; to acquire practical skills of composing programs for processing one-dimensional arrays, to master the methods of analyzing the labor and resource complexity of algorithms for processing one-dimensional numerical arrays.
@@ -29,14 +33,32 @@ I will break the problem into steps.
 4. Sort array B in ascending order.
 5.	Swap bytes in non-negative elements of array B.
 
+---
+
 ## Task 4
 **Purpose**: studying the principles of organizing the input of information from the outside into the computer and the output of information from the computer to the outside, the organization of time delay in data processing in assembly language, as well as acquiring practical skills in programming these operations.
 
 There is an SRV, which includes some hardware peripherals (PU) and the core in the form of a computer (Fig. 4.2), which communicates with the periphery through one 16-bit input port with a given address AIN and one 16-bit output port with a given address AOUT. Input 8-bit data is received on the low byte of the input port. To actualize the input data, the specified operating mode control word (UCRW) must be previously output through the output port. The sending of the MSRP is clocked high via the specified RC bit of the input port. The initial value of the high byte of the MSRP (MSRP[1]) is the specified U0 combination. With each subsequent data request, the value of MSRP[1] is changed by the specified increment ∆U. Due to the hardware time consumption of the peripheral part, data actualization takes place after a specified time interval τ.
+
+
 ![Structural diagram of the real-time system](img/scheme.png)
 
 The low byte of the MSRP (MSRP[0]) is bitwise modified as follows:
 - at each odd iteration, the specified SR bits are set and the RS bits are reset;
 - at each even iteration the specified SR bits are reset and RS bits are set.
   Compose a program in assembly language that polls external devices through the input port and writes the sent SDRR and the corresponding data on the state of peripheral devices in one-dimensional arrays of a given length N. Realization of the time delay  is carried out with the help of the DELAY subroutine. The block diagram of the control program algorithm is shown in Fig. 4.3. The set parameters of the SRV are presented in the table.
+
+---
+
+## Task 5
+**Purpose**: study of the principles of organisation of information exchange between the SRV kernel and peripheral devices; acquisition of practical skills of development of functional schemes, algorithms and control programs for control of technological processes with the use of measuring converters and actuators.
+
+**Emergency flood warning system.**
+
+The control object is an emergency water rise control site, which is located in the river floodplain upstream of a major city.
+There are 6 identical discrete water level sensors located at the site: 3 sensors at 1 metre above the ordinate level and 3 sensors at 3 metres above the ordinate level. A level is considered flooded if any of the sensors at that level outputs a logic one level signal.
+If the system detects water rising up to 1 metre above the ordinal level, a discrete signal is output to the orange signal lamp. If the water falls below the "1 metre above ordinal level" mark, the orange signal lamp goes out.
+If the system detects water rising to 3 metres above the ordinal level, a discrete signal is output to the red warning lamp and an analogue DC signal to the buzzer as shown below. The buzzer and the red warning lamp stop signalling when the water falls below the "3 metres above ordinal level" mark.
+
+![Schedule of signal output to the audible warning device](img/task5.jpg)
 
